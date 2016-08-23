@@ -60,6 +60,17 @@ public class BitwiseSet {
      * */
     public BitwiseSet(int value) { mValue = value; }
 
+    /**
+     * Constructs a new {@link BitwiseSet} instance with the same bits as {@code toCopy}.
+     * */
+    public BitwiseSet(BitwiseSet toCopy) {
+        if (toCopy != null) {
+            this.setValue(toCopy.getValue());
+        } else {
+            throw new IllegalArgumentException("The toCopy must be not null.");
+        }
+    }
+
     /** Returns the current value this {@code BitwiseSet}. */
     public int getValue() { return mValue; }
 
