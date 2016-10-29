@@ -130,7 +130,15 @@ public class BitwiseSet {
     /**
      * Sets all bits {@code false} (turns all bits off).
      * */
-    public void clear() { setValue(BITWISE_VALUE_ALL_OFF); }
+    public void clear() { clear(false); }
+
+    /**
+     * Sets all bits to specified state.
+     * @param on The new state for all bits.
+     * */
+    public void clear(boolean on) {
+        setValue(on ? BITWISE_VALUE_ALL_ON : BITWISE_VALUE_ALL_OFF);
+    }
 
     /**
      * Bitwise AND operation with another specified {@link BitwiseSet} object.

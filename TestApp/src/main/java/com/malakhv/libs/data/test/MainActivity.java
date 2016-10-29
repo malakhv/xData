@@ -123,7 +123,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         log(set.toBinaryString());
 
         // All bits ON
-        set.setValue(BitwiseSet.BITWISE_VALUE_ALL_ON);
+        set.clear(true);
 
         // shl
         set.shl(7);
@@ -177,7 +177,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         log(set.toBinaryString());
 
         // turnOf
-        set.setValue(BitwiseSet.BITWISE_VALUE_ALL_ON);
+        set.clear(true);
         set.turnOff(1); set.turnOff(3); set.turnOff(5); set.turnOff(7); set.turnOff(9);
         set.turnOff(11); set.turnOff(13); set.turnOff(15); set.turnOff(17); set.turnOff(19);
         set.turnOff(21); set.turnOff(23); set.turnOff(25); set.turnOff(27); set.turnOff(29);
