@@ -91,6 +91,36 @@ public class BitwiseSet {
     public int set(int mask, boolean on) { return mValue = Bitwise.set(mValue, mask, on); }
 
     /**
+     * Set the new state of the bit (true or false, turned on or turned of) by index.
+     * @param index The bit index.
+     * @param on The new state for bit.
+     * @return The new value of this {@link BitwiseSet}.
+     * */
+    public int setBit(int index, boolean on) {
+        return on ? turnOn(index) : turnOff(index);
+    }
+
+    /**
+     * Turns on the bits into {@code value} by specified bit index.
+     * @param index The bit index.
+     * @return The new value of this {@link BitwiseSet}.
+     * */
+    public int turnOn(int index) {
+        final int mask = Bitwise.getMask(index);
+        return mValue = Bitwise.turnOn(mValue, mask);
+    }
+
+    /**
+     * Turns off the bits into {@code value} by specified bit index.
+     * @param index The bit index.
+     * @return The new value of this {@link BitwiseSet}.
+     * */
+    public int turnOff(int index) {
+        final int mask = Bitwise.getMask(index);
+        return mValue = Bitwise.turnOff(mValue, mask);
+    }
+
+    /**
      * Inverts the new state of the bits specified by mask.
      * @param mask The bit mask, a flag or combination of flags.
      * @return The new value of this {@link BitwiseSet}.

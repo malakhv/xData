@@ -101,35 +101,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Test toString
         log("Test - toString");
         log(set.toString());
-
-        int mask_0 = 1;
-        int mask_1 = 2;
-        int mask_2 = 4;
-
-        // Invert test
-        //set.not();
-        //log(set.toString());
-        //set.invert(mask_2);
-        //log(set.toString());
-
-        //set.setBit(2, true);
-        //set.setBit(1, true);
-        //set.setBit(0, true);
-        //set.setBit(1, true);
-        //set.setBit(2, true);
-        //set.setBit(4, true);
-        //set.setBit(30, true);
-        //set.setBit(31, true);
-        //set.setBit(30, false);
-
-        //set.setBit(1, true);
-        //set.setBit(0, true);
-        //set.setBit(4, true);
-        //set.setBit(31, true);
-        //log(set.toString());
-
-
-        //set.set(mask_1, false);
     }
 
     /** The action for button 2. */
@@ -185,6 +156,34 @@ public class MainActivity extends Activity implements View.OnClickListener {
     /** The action for button 3. */
     private void action3() {
         clear(); log("Action 3:");
+        log("Test setBit, turnOn and turnOff");
+
+        // Make BitwiseSet instance
+        BitwiseSet set = new BitwiseSet(BitwiseSet.BITWISE_VALUE_ALL_OFF);
+        log(set.toBinaryString());
+
+        // SetBit
+        for (int i = 0; i < Integer.SIZE; i++) {
+            set.setBit(i, (i % 2) == 0);
+        }
+        log(set.toBinaryString());
+
+        // turnOn
+        set.clear();
+        set.turnOn(0); set.turnOn(2); set.turnOn(4); set.turnOn(6); set.turnOn(8);
+        set.turnOn(10); set.turnOn(12); set.turnOn(14); set.turnOn(16); set.turnOn(18);
+        set.turnOn(20); set.turnOn(22); set.turnOn(24); set.turnOn(26); set.turnOn(28);
+        set.turnOn(30);
+        log(set.toBinaryString());
+
+        // turnOf
+        set.setValue(BitwiseSet.BITWISE_VALUE_ALL_ON);
+        set.turnOff(1); set.turnOff(3); set.turnOff(5); set.turnOff(7); set.turnOff(9);
+        set.turnOff(11); set.turnOff(13); set.turnOff(15); set.turnOff(17); set.turnOff(19);
+        set.turnOff(21); set.turnOff(23); set.turnOff(25); set.turnOff(27); set.turnOff(29);
+        set.turnOff(31);
+        log(set.toBinaryString());
+
     }
 
     /** The action for button 4. */
