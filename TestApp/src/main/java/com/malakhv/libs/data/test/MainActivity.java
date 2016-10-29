@@ -135,6 +135,51 @@ public class MainActivity extends Activity implements View.OnClickListener {
     /** The action for button 2. */
     private void action2() {
         clear(); log("Action 2:");
+        log("Test shl and shr operations");
+
+        // Make BitwiseSet instance
+        BitwiseSet set = new BitwiseSet(BitwiseSet.BITWISE_VALUE_ALL_OFF);
+        int mask = BitwiseSet.Bitwise.getMask(2);
+        set.set(mask, true);
+        log(set.toBinaryString());
+
+        // shl 1
+        set.shl();
+        log(set.toBinaryString());
+
+        // shr 1
+        set.shr();
+        log(set.toBinaryString());
+
+        // All bits ON
+        set.setValue(BitwiseSet.BITWISE_VALUE_ALL_ON);
+
+        // shl
+        set.shl(7);
+        log(set.toBinaryString());
+
+        // shr
+        set.shr(5);
+        log(set.toBinaryString());
+
+        // shr
+        set.shr(15);
+        log(set.toBinaryString());
+
+        // sur 1
+        set.sur();
+        log(set.toBinaryString());
+
+        // sur 117
+        set.sur(117);
+        log(set.toBinaryString());
+
+        // shr max int
+        mask = BitwiseSet.Bitwise.getMask(31);
+        set.set(mask, true);
+        set.shr(Integer.MAX_VALUE);
+        log(set.toBinaryString());
+
     }
 
     /** The action for button 3. */

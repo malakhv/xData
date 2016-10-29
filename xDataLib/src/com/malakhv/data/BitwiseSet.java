@@ -156,6 +156,45 @@ public class BitwiseSet {
     public int not() { return mValue = Bitwise.not(mValue); }
 
     /**
+     * Bitwise signed left shift operation.
+     * @return Result of logical signed left shift operation for {@code value}.
+     * */
+    public int shl() { return shl(1); }
+
+    /**
+     * Bitwise signed left shift operation.
+     * @param shift The number of positions to shift.
+     * @return Result of logical signed left shift operation for {@code value}.
+     * */
+    public int shl(int shift) { return mValue = Bitwise.shl(mValue, shift); }
+
+    /**
+     * Bitwise signed right shift operation.
+     * @return Result of logical signed right shift operation for {@code value}.
+     * */
+    public int shr() { return shr(1); }
+
+    /**
+     * Bitwise signed right shift operation.
+     * @param shift The number of positions to shift.
+     * @return Result of logical signed right shift operation for {@code value}.
+     * */
+    public int shr(int shift) { return mValue = Bitwise.shr(mValue, shift); }
+
+    /**
+     * Bitwise unsigned right shift operation.
+     * @return Result of logical signed right shift operation for {@code value}.
+     * */
+    public int sur() { return sur(1); }
+
+    /**
+     * Bitwise unsigned right shift operation.
+     * @param shift The number of positions to shift.
+     * @return Result of logical signed right shift operation for {@code value}.
+     * */
+    public int sur(int shift) { return mValue = Bitwise.sur(mValue, shift); }
+
+    /**
      * Convert the bits to bytes array.
      * */
     public byte[] toBytes() { return Bitwise.toBytes(mValue); }
@@ -298,6 +337,51 @@ public class BitwiseSet {
          * @return Result of logical NOT operation for {@code value}.
          * */
         public static int not(int value) { return ~value; }
+
+        /**
+         * Bitwise signed left shift operation.
+         * @param value The original value.
+         * @return Result of logical signed left shift operation for {@code value}.
+         * */
+        public static int shl(int value) { return Bitwise.shl(value ,1); }
+
+        /**
+         * Bitwise signed left shift operation.
+         * @param value The original value.
+         * @param shift The number of positions to shift.
+         * @return Result of logical signed left shift operation for {@code value}.
+         * */
+        public static int shl(int value, int shift) { return value << shift; }
+
+        /**
+         * Bitwise signed right shift operation.
+         * @param value The original value.
+         * @return Result of logical signed right shift operation for {@code value}.
+         * */
+        public static int shr(int value) { return Bitwise.shr(value ,1); }
+
+        /**
+         * Bitwise signed right shift operation.
+         * @param value The original value.
+         * @param shift The number of positions to shift.
+         * @return Result of logical signed right shift operation for {@code value}.
+         * */
+        public static int shr(int value, int shift) { return value >> shift; }
+
+        /**
+         * Bitwise unsigned right shift operation.
+         * @param value The original value.
+         * @return Result of logical signed right shift operation for {@code value}.
+         * */
+        public static int sur(int value) { return Bitwise.shr(value ,1); }
+
+        /**
+         * Bitwise unsigned right shift operation.
+         * @param value The original value.
+         * @param shift The number of positions to shift.
+         * @return Result of logical signed right shift operation for {@code value}.
+         * */
+        public static int sur(int value, int shift) { return value >>> shift; }
 
         /**
          * Returns the bit mask for bit by specified bit index.
